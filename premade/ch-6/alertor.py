@@ -11,10 +11,6 @@ def cleanup():
     buzzer.close()
     button.close()
 
-def alertor():
-    import math
-import time
-
 def alertor(): # Modified because the version in the manual didn't work
     for x in range(0, 180):
         if not button.is_active:
