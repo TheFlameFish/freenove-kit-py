@@ -1,5 +1,5 @@
 from gpiozero import LED, Button
-from time import sleep
+from time import sleep, strftime
 
 led = LED(17)       # define LED pin according to BCM Numbering
 button = Button(18, pull_up= True) # define Button pin according to BCM Numbering
@@ -11,13 +11,13 @@ def main():
     while True:
         if button.value == False and previous == True: # On button release
             toggle = not toggle
-            print("Toggled")
+            print(strftime('%X') + ": Toggled")
             if toggle:
                 led.blink(on_time=0.2, off_time=0.2)
             else:
                 led.off()
         previous = button.value
-        sleep(0.01)
+        sleep(0.00000005)
 
 if __name__ == '__main__':     # Program entrance
     print ('Program is starting...')
